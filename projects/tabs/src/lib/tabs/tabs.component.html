@@ -1,0 +1,26 @@
+<div class="tab">
+    <ng-template
+        ngFor
+        [ngForOf]="tabs"
+        let-tab
+        let-i="index"
+    >
+        <button
+            class="tablinks"
+            [tabindex]="i"
+            (click)="selectTab(tab)"
+            [class.active]="tab.active"
+        >
+            <p [textContent]="tab.title"></p>
+            <small
+                *ngIf="tab.isCloseable"
+                (click)="closeTab(tab)"
+                class="tab-close"
+            >
+                x
+            </small>
+        </button>
+    </ng-template>
+    <button (click)="openTab('tabs.length', componentName, {},true)">+</button>
+</div>
+<ng-container #container></ng-container>

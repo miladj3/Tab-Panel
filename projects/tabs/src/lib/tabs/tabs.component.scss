@@ -1,0 +1,33 @@
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  p {
+    display: inline-block;
+    margin: 0;
+  }
+  small {
+    color: red;
+    margin-left: 10px;
+    font-size: 12px;
+    display: inline-block;
+    vertical-align: 1px;
+  }
+  button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: #ddd;
+    }
+
+    &.active {
+      background-color: #ccc;
+    }
+  }
+}

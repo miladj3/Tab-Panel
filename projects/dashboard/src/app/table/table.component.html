@@ -1,0 +1,27 @@
+<table>
+    <caption [textContent]="title"></caption>
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Birtday</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-template
+            ngFor
+            [ngForOf]="data"
+            let-d
+            let-i="index"
+            [ngForTrackBy]="trackByFn"
+        >
+            <tr>
+                <td [textContent]="d.name"></td>
+                <td [textContent]="d.surName"></td>
+                <td [textContent]="d.birthday"></td>
+                <td><button (click)="del(d)">del</button><button (click)="edit(d)">edit</button></td>
+            </tr>
+        </ng-template>
+    </tbody>
+</table>
