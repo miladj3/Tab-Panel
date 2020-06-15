@@ -1,11 +1,11 @@
 import {
-  AfterContentInit,
-  Component,
-  ComponentFactoryResolver,
-  Input,
-  OnInit,
-  ViewChild,
-  ViewContainerRef,
+    AfterContentInit,
+    Component,
+    ComponentFactoryResolver,
+    Input,
+    OnInit,
+    ViewChild,
+    ViewContainerRef,
 } from '@angular/core';
 
 import { TabComponent } from '../tab/tab.component';
@@ -20,6 +20,8 @@ export class TabsComponent implements OnInit, AfterContentInit {
   @Input('component-name') public componentName: string;
   @ViewChild('container', { read: ViewContainerRef }) private container: ViewContainerRef;
   public tabs: Array<TabComponent> = [];
+  public isShowModal: boolean = false;
+  public tabName: string = '';
 
   constructor(
     private readonly tabsService: TabsService,
@@ -69,5 +71,11 @@ export class TabsComponent implements OnInit, AfterContentInit {
     instance.isCloseable = isCloseable;
     this.tabs.push(componentRef.instance as TabComponent);
     this.selectTab(this.tabs[this.tabs.length - 1]);
+    this.isShowModal = false;
+  }
+
+  public showModal() {
+    this.isShowModal = true;
+    this.tabName = '';
   }
 }

@@ -17,13 +17,15 @@ export class TabComponent implements OnInit {
     private readonly _componentFactoryResolver: ComponentFactoryResolver) { }
 
   async ngOnInit() {
-    const type: Type<any> = await this.getTypeOfComponent(this.component);
-    const componentFactory = this._componentFactoryResolver.resolveComponentFactory(type);
+    const _type: Type<any> = await this.getTypeOfComponent(this.component);
+    const componentFactory = this._componentFactoryResolver.resolveComponentFactory(_type);
     const viewContainerRef: ViewContainerRef = this.container;
     const componentRef = viewContainerRef.createComponent(componentFactory);
-    const instance = componentRef.instance;
-    instance['title'] = this.title;
-    instance['data'] = this.dataContext;
+    componentRef.instance['title'] = this.title;
+    componentRef.instance['data'] = this.dataContext;
+    componentRef.instance['dataChange'].subscribe(c => {
+      this.dataContext = c;
+    });
   }
   public async getTypeOfComponent(component: string) {
     const factories = Array.from(this._componentFactoryResolver['_factories'].values());

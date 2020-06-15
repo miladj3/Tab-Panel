@@ -11,7 +11,7 @@
             (click)="selectTab(tab)"
             [class.active]="tab.active"
         >
-            <p [textContent]="tab.title"></p>
+            <p [textContent]="tab.title + ' (' + tab.dataContext.length + ')'"></p>
             <small
                 *ngIf="tab.isCloseable"
                 (click)="closeTab(tab)"
@@ -21,6 +21,48 @@
             </small>
         </button>
     </ng-template>
-    <button (click)="openTab('tabs.length', componentName, {},true)">+</button>
+    <button (click)="showModal()">+</button>
 </div>
 <ng-container #container></ng-container>
+
+<div
+    class="overlay"
+    *ngIf="isShowModal"
+>
+    <div class="popup">
+        <h2>NEW TAB</h2>
+        <a
+            class="close"
+            (click)="isShowModal = false"
+        >
+            &times;
+        </a>
+        <div class="content">
+            <form class="form-style">
+                <ul>
+                    <li>
+                        <label for="name">Name</label>
+                        <input
+                            tabindex="0"
+                            type="text"
+                            name="name"
+                            maxlength="100"
+                            [value]="tabName"
+                            (input)="tabName = $event.target.value"
+                        >
+                        <span>Enter your tab name here</span>
+                    </li>
+                    <li>
+                        <button
+                            type="button"
+                            [disabled]="!tabName.length"
+                            (click)="openTab(tabName, componentName, {}, true)"
+                        >
+                            Add
+                        </button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>

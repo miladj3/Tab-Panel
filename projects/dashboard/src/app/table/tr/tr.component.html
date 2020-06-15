@@ -1,0 +1,58 @@
+<ng-template
+    [ngIf]="!isEditMode"
+    [ngIfElse]="editMode"
+>
+    <td [textContent]="model.name"></td>
+    <td [textContent]="model.surName"></td>
+    <td [textContent]="model.birthday | date:'yyyy/mm/dd'"></td>
+    <td>
+        <button
+            (click)="del(model.id)"
+            class="del"
+        >
+            del
+        </button>
+        <button
+            (click)="edit()"
+            class="edit"
+        >
+            edit
+        </button>
+    </td>
+</ng-template>
+
+<ng-template #editMode>
+    <td>
+        <input
+            type="text"
+            [(ngModel)]="model.name"
+        >
+    </td>
+    <td>
+        <input
+            type="text"
+            [(ngModel)]="model.surName"
+        >
+    </td>
+    <td>
+        <input
+            type="date"
+            [value]="model.birthday | date:'yyyy-MM-dd'"
+            (input)="model.birthday = parseDate($event.target.value)"
+        >
+    </td>
+    <td>
+        <button
+            (click)="save()"
+            class="save"
+        >
+            save
+        </button>
+        <button
+            (click)="isEditMode = false"
+            class="cancel"
+        >
+            cancel
+        </button>
+    </td>
+</ng-template>

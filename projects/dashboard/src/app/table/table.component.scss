@@ -78,3 +78,25 @@ table th {
         border-bottom: 0;
     }
 }
+
+
+button {
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    text-align: left;
+    &.cancel {
+        background: orangered;
+    }
+    &.save {
+        background: blue;
+    }
+    &:disabled{
+        opacity: .5;
+        pointer-events: none;
+    }
+}

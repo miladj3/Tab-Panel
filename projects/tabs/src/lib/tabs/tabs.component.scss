@@ -31,3 +31,136 @@
     }
   }
 }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    color: #333;
+    &:hover {
+      color: #06d85f;
+    }
+  }
+  .content {
+    max-height: 30%;
+    overflow: auto;
+  }
+  h2 {
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0px 0px 20px 0px;
+    color: #5c5c5c;
+    font-size: x-large;
+  }
+}
+@media screen and (max-width: 700px) {
+  .box {
+    width: 70%;
+  }
+  .popup {
+    width: 70%;
+  }
+}
+
+.form-style {
+  max-width: 400px;
+  background: #fff;
+  border-radius: 2px;
+  padding: 20px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      display: block;
+      padding: 9px;
+      border: 1px solid #dddddd;
+      margin-bottom: 30px;
+      border-radius: 3px;
+      &:last-child {
+        border: none;
+        margin-bottom: 0px;
+        text-align: center;
+      }
+      & > label {
+        display: block;
+        float: left;
+        margin-top: -19px;
+        background: #ffffff;
+        height: 14px;
+        padding: 2px 5px 2px 5px;
+        color: #b9b9b9;
+        font-size: 14px;
+        overflow: hidden;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      input[type="text"] {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        width: 100%;
+        display: block;
+        outline: none;
+        border: none;
+        height: 25px;
+        line-height: 25px;
+        font-size: 16px;
+        padding: 0;
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+      span {
+        background: #f3f3f3;
+        display: block;
+        padding: 3px;
+        margin: 0 -9px -9px -9px;
+        text-align: center;
+        color: #c0c0c0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 11px;
+      }
+      button {
+        background: #2471ff;
+        border: none;
+        padding: 10px 20px 10px 20px;
+        border-bottom: 3px solid #5994ff;
+        border-radius: 3px;
+        color: #d2e2ff;
+        outline: none;
+        &:hover {
+          background: #6b9fff;
+          color: #fff;
+        }
+        &:disabled {
+          opacity: 0.5;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}

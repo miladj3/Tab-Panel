@@ -1,0 +1,21 @@
+button {
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    &.del {
+        background: red;
+    }
+    &.edit {
+        background: green;
+    }
+    &.cancel {
+        background: orangered;
+    }
+    &.save {
+        background: blue;
+    }
+}

@@ -16,12 +16,50 @@
             let-i="index"
             [ngForTrackBy]="trackByFn"
         >
-            <tr>
-                <td [textContent]="d.name"></td>
-                <td [textContent]="d.surName"></td>
-                <td [textContent]="d.birthday"></td>
-                <td><button (click)="del(d)">del</button><button (click)="edit(d)">edit</button></td>
-            </tr>
+            <tr
+                app-tr
+                [index]="i"
+                [(model)]="d"
+                (delete)="del($event)"
+            ></tr>
         </ng-template>
     </tbody>
+    <tfoot>
+        <tr>
+            <td>
+                <input
+                    type="text"
+                    [(ngModel)]="model.name"
+                >
+            </td>
+            <td>
+                <input
+                    type="text"
+                    [(ngModel)]="model.surName"
+                >
+            </td>
+            <td>
+                <input
+                    type="date"
+                    [value]="model.birthday | date:'yyyy-MM-dd'"
+                    (input)="model.birthday = parseDate($event.target.value)"
+                >
+            </td>
+            <td>
+                <button
+                    (click)="Add()"
+                    class="save"
+                    [disabled]="(!model.birthday && !model.name && !model.surName)"
+                >
+                    Add
+                </button>
+                <button
+                    (click)="model = {}"
+                    class="cancel"
+                >
+                    cancel
+                </button>
+            </td>
+        </tr>
+    </tfoot>
 </table>

@@ -59,18 +59,18 @@ export class TabsService {
         }]
       },
       {
-        title: 'D2',
+        title: 'D3',
         data: [{
           id: 1,
           name: 'Milad',
           surName: 'Jafari',
-          birthday: new Date('1986-02-03')
+          birthday: new Date('2020-02-03')
         },
         {
           id: 2,
           name: 'Babak',
           surName: 'Hosseini',
-          birthday: new Date('1988-02-02')
+          birthday: new Date('2000-02-02')
         },
         ]
       }
