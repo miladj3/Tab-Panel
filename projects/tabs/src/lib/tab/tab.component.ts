@@ -11,7 +11,7 @@ export class TabComponent implements OnInit {
   @Input() public component: any;
   @Input() public dataContext: any;
   @Input() public active: boolean;
-  @ViewChild('container', { read: ViewContainerRef }) private container: ViewContainerRef;
+  @ViewChild('container', { read: ViewContainerRef, static: true }) private container: ViewContainerRef;
 
   constructor(
     private readonly _componentFactoryResolver: ComponentFactoryResolver) { }

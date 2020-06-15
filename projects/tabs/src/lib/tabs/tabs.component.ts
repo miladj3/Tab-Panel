@@ -1,11 +1,11 @@
 import {
-    AfterContentInit,
-    Component,
-    ComponentFactoryResolver,
-    Input,
-    OnInit,
-    ViewChild,
-    ViewContainerRef,
+  AfterContentInit,
+  Component,
+  ComponentFactoryResolver,
+  Input,
+  OnInit,
+  ViewChild,
+  ViewContainerRef,
 } from '@angular/core';
 
 import { TabComponent } from '../tab/tab.component';
@@ -18,7 +18,7 @@ import { TabsService } from '../tabs.service';
 })
 export class TabsComponent implements OnInit, AfterContentInit {
   @Input('component-name') public componentName: string;
-  @ViewChild('container', { read: ViewContainerRef }) private container: ViewContainerRef;
+  @ViewChild('container', { read: ViewContainerRef, static: true }) private container: ViewContainerRef;
   public tabs: Array<TabComponent> = [];
   public isShowModal: boolean = false;
   public tabName: string = '';

@@ -12,14 +12,14 @@
         <ng-template
             ngFor
             [ngForOf]="data"
-            let-d
+            let-item
             let-i="index"
             [ngForTrackBy]="trackByFn"
         >
             <tr
                 app-tr
                 [index]="i"
-                [(model)]="d"
+                [(model)]="data[i]"
                 (delete)="del($event)"
             ></tr>
         </ng-template>
